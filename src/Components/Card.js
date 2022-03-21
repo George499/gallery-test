@@ -26,7 +26,7 @@ const Card = () => {
         params: {
           query,
           page,
-          perPage: 10,
+          perPage: 20,
           client_id: ACCESS_KEY,
         },
       }).then((result) => {
@@ -52,7 +52,7 @@ const Card = () => {
     const { scrollHeight, scrollTop, clientHeight } = e.target.scrollingElement;
     const isBottom = scrollHeight - scrollTop <= clientHeight;
     if (isBottom && !fetchingRef.current) {
-      getImages(phraseRef.current, imagesRef.current.length / 10 + 1).then(
+      getImages(phraseRef.current, imagesRef.current.length / 20 + 1).then(
         (newImages) => {
           imagesRef.current = [...imagesRef.current, ...newImages];
           setImages(imagesRef.current);
@@ -75,7 +75,7 @@ const Card = () => {
     <>
       <div className="gap-6 pt-2 flex justify-center">
         <input
-          className="mt-16 mb-12 px-2 rounded-full backdrop-blur-md bg-white/50 shadow-md h-[50px] w-1/2 focus:outline-none focus:ring-purple-500 focus:ring-1 transition duration-200"
+          className=" mb-12 px-2 rounded-full backdrop-blur-md bg-white/50 shadow-md h-[50px] w-1/2 dark:placeholder-white focus:outline-none focus:ring-purple-500 focus:ring-1 transition duration-200"
           type="text"
           placeholder="Search for images"
           value={phrase}
@@ -84,7 +84,7 @@ const Card = () => {
       </div>
 
       {fetching && "Searching for the images"}
-      <div className="container grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-8 sm:gap-8 mx-auto align-center ">
+      <div className=" gap-6 pt-2 columns-3xs">
         {images.length > 0
           ? images.map((image, index) => (
               <figure className=" py-4 [break-inside:avoid]" key={image.id}>

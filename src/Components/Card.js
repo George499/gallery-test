@@ -27,7 +27,7 @@ const Card = () => {
           query,
           page,
           perPage: 20,
-          client_id: ACCESS_KEY,
+          client_id: "bd3R2RCleuZ-9TJAStzb6yfW9RCBtdb8SNJ5kK48NK4",
         },
       }).then((result) => {
         setFetching(false);
